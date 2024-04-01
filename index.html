@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <input type="text" name="answer" id="display">
+        <div class="button-container">
+            <button class="button clear" onclick="clearDisplay()">AC</button>
+            <button class="operator" onclick="addToDisplay('-')">+/-</button>
+            <button class="operator" onclick="addToDisplay('0.0')">%</button>
+            <button class="operator" onclick="addToDisplay('/')">÷</button>
+
+            <button class="button" onclick="addToDisplay('7')">7</button>
+            <button class="button" onclick="addToDisplay('8')">8</button>
+            <button class="button" onclick="addToDisplay('9')">9</button>
+            <button class="operator" onclick="addToDisplay('*')">×</button>
+
+            <button class="button" onclick="addToDisplay('4')">4</button>
+            <button class="button" onclick="addToDisplay('5')">5</button>
+            <button class="button" onclick="addToDisplay('6')">6</button>
+            <button class="operator" onclick="addToDisplay('-')">-</button>
+
+            <button class="button" onclick="addToDisplay('1')">1</button>
+            <button class="button" onclick="addToDisplay('2')">2</button>
+            <button class="button" onclick="addToDisplay('3')">3</button>
+            <button class="operator" onclick="addToDisplay('+')">+</button>
+            
+            <button class="button" onclick="addToDisplay('0')">0</button>
+            <button class="button" onclick="addToDisplay('.')">.</button>
+            <button class="operator" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        var displayElement = document.getElementById('display');
+
+        function addToDisplay(value) {
+            displayElement.value += value;
+        }
+
+        function clearDisplay() {
+            displayElement.value = '';
+        }
+
+        function backspace() {
+            var displayValue = displayElement.value;
+            displayElement.value = displayValue.slice(0, -1);
+        }
+
+        function calculate() {
+            var displayValue = displayElement.value;
+            displayElement.value = eval(displayValue);
+        }
+    </script>
+</body>
+</html>
